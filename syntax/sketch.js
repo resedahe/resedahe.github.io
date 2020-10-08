@@ -21,7 +21,7 @@ let BubbleTextColor = BackgroundColor
 let shared;
 function preload() {
   partyConnect(
-    "wss://syntaxbackup1.herokuapp.com",
+    "wss://syntaxbackup2.herokuapp.com",
     "hello_party",
     "main"
   );
