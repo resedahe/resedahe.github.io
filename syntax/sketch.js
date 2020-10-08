@@ -3,6 +3,8 @@ let input, button, title, designer, restart;
 var bgx, bgy, bgw, bgh;
 var c1, c2;
 let bg;
+var slider; 
+let redRec, greenRec, blueRec;
 
 var radius = 45;
 //var circles = [];
@@ -30,7 +32,22 @@ function preload() {
 
 function setup() {
     // BackgroundImage = loadImage ('Background Test 1.png');
-    // bg = loadImage('/purple.jpg');
+   //  bg = loadImage('/dream2.png');
+
+   //slider 
+    slider = createSlider(0, 255, 112);
+    slider2 = createSlider(0, 255, 100);
+    slider3 = createSlider(0, 255, 154);
+
+    slider.position(775, 715);
+    slider.style('width', '80px');
+  
+    slider2.position(775, 740);
+    slider2.style('width', '80px');
+  
+    slider3.position(775, 765);
+    slider3.style('width', '80px');
+  
     shared.x = shared.x || 0;
     shared.y = shared.y || 0;
     shared.circles = shared.circles || [];
@@ -151,7 +168,33 @@ restart.position((width/2)-restart.width/2, height-50);
   textAlign(CENTER,CENTER);  //***ZS, more centered on bubble
   textSize(15);
   
-
+  //red 
+  redRec = createButton('');
+  redRec.style('color','white');
+  redRec.style('background-color','#cc3631');
+  redRec.style('border','none');
+  redRec.style('padding','5px 5px');
+  redRec.style('border-radius', '20px');
+  redRec.position(745, 720);
+  
+  //green
+  greenRec = createButton('');
+  greenRec.style('color','white');
+  greenRec.style('background-color','#42c260');
+  greenRec.style('border','none');
+  greenRec.style('padding','5px 5px');
+  greenRec.style('border-radius', '20px');
+  greenRec.position(745, 745);
+  
+  //blue
+  blueRec = createButton('');
+  blueRec.style('color','white');
+  blueRec.style('background-color','#3954cc');
+  blueRec.style('border','none');
+  blueRec.style('padding','5px 5px');
+  blueRec.style('border-radius', '20px');
+  blueRec.position(745, 770);
+  
   
 }
 
@@ -213,7 +256,42 @@ function draw() {
    // bgCircle6.show();
    // bgCircle7.show();
   
+ // start of slider
+	var red = slider.value();
+	var green = slider2.value();
+	var blue = slider3.value();
+	rectMode(CENTER)
+	noStroke()
+	background(red,green,blue);
+  //red
+//   fill(204, 54, 49)
+//   rect(750, 725, 10,10)
+//  // rect(880, 725, 10,10)
+//   textSize(15);
+//   fill(0)
+//   //text('red', 20, 130)
+//  // text(red, 880, 725)
+
+//   //green
+//   fill(78, 207, 106)
+//   rect(750, 750, 10,10)
+//  // rect(880, 750, 10,10)
+//   textSize(15);
+//   fill(0)
+//  // text('gre', 20, 95)
+//   //text(green, 150, 95)
+
   
+ //   //blue
+ //  fill(39, 133, 227)
+ //  rect(750, 775, 10,10)
+ // // rect(880, 775, 10,10)
+ //  textSize(15);
+ //  fill(0)
+ // // text('blu', 20, 135)
+ //  //text(blue, 150, 135)
+
+  //end of slider
 
   //ZS ADDED 10/6
   push();
@@ -371,3 +449,4 @@ function mouseDragged() {
   ProjectImage = createImage(windowWidth, windowHeight);
   save(ProjectImage, 'myImage.png');
 }
+
