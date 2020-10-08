@@ -32,7 +32,7 @@ function preload() {
 
 function setup() {
     // BackgroundImage = loadImage ('Background Test 1.png');
-     bg = loadImage('/dream.png');
+     bg = loadImage('/syntax/dream.png');
 
    //slider 
     slider = createSlider(0, 255, 112);
