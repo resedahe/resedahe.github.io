@@ -32,7 +32,7 @@ function preload() {
 
 function setup() {
     // BackgroundImage = loadImage ('Background Test 1.png');
-   //  bg = loadImage('/dream2.png');
+     bg = loadImage('/dream.png');
 
    //slider 
     slider = createSlider(0, 255, 112);
@@ -242,8 +242,8 @@ function drawAuthor() {
 
 
 function draw() {
- // background(bg);
-  background(BackgroundColor); 
+   background(bg);
+  //background(BackgroundColor); 
   
   // image(BackgroundImage, 0, 0);
   // BackgroundImage.resize(width, height);
@@ -262,7 +262,8 @@ function draw() {
 	var blue = slider3.value();
 	rectMode(CENTER)
 	noStroke()
-	background(red,green,blue);
+	background(red,green,blue,50);
+   
   //red
 //   fill(204, 54, 49)
 //   rect(750, 725, 10,10)
@@ -449,4 +450,3 @@ function mouseDragged() {
   ProjectImage = createImage(windowWidth, windowHeight);
   save(ProjectImage, 'myImage.png');
 }
-
