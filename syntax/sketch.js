@@ -21,7 +21,7 @@ let BubbleTextColor = BackgroundColor
 let shared;
 function preload() {
   partyConnect(
-    "wss://syntaxbackup2.herokuapp.com",
+    "wss://syntaxbackup1.herokuapp.com",
     "hello_party",
     "main"
   );
@@ -32,20 +32,23 @@ function preload() {
 
 function setup() {
     // BackgroundImage = loadImage ('Background Test 1.png');
-     bg = loadImage('dream.png');
+     bg = loadImage('/dream.png');
 
    //slider 
     slider = createSlider(0, 255, 112);
     slider2 = createSlider(0, 255, 100);
     slider3 = createSlider(0, 255, 154);
 
-    slider.position(775, 715);
+    //slider.position(775, 715);
+    slider.position(670, 630);
     slider.style('width', '80px');
   
-    slider2.position(775, 740);
+    //slider2.position(775, 740);
+    slider2.position(670, 650);
     slider2.style('width', '80px');
   
-    slider3.position(775, 765);
+   // slider3.position(775, 765);
+    slider3.position(670, 670);
     slider3.style('width', '80px');
   
     shared.x = shared.x || 0;
@@ -175,7 +178,8 @@ restart.position((width/2)-restart.width/2, height-50);
   redRec.style('border','none');
   redRec.style('padding','5px 5px');
   redRec.style('border-radius', '20px');
-  redRec.position(745, 720);
+ // redRec.position(745, 720);
+   redRec.position(655, 635);
   
   //green
   greenRec = createButton('');
@@ -184,8 +188,9 @@ restart.position((width/2)-restart.width/2, height-50);
   greenRec.style('border','none');
   greenRec.style('padding','5px 5px');
   greenRec.style('border-radius', '20px');
-  greenRec.position(745, 745);
-  
+ // greenRec.position(670, 650);
+  greenRec.position(655, 655);
+
   //blue
   blueRec = createButton('');
   blueRec.style('color','white');
@@ -193,7 +198,8 @@ restart.position((width/2)-restart.width/2, height-50);
   blueRec.style('border','none');
   blueRec.style('padding','5px 5px');
   blueRec.style('border-radius', '20px');
-  blueRec.position(745, 770);
+ // blueRec.position(745, 770);
+  blueRec.position(655, 675);
   
   
 }
