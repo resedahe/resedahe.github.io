@@ -55,7 +55,7 @@ function setup() {
     shared.title = shared.title || '';
     shared.author = shared.author || '';
 
-  createCanvas(1240,800);  
+  createCanvas(800,800);  
   ellipseMode(RADIUS);
   
   bgCircle1 = new backgroundCircle();
