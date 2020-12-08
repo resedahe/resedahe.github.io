@@ -7,7 +7,7 @@ let myRec;
 //let delay;
 //let r, g, b;
 let bubbles = [];
-let scribble = new Scribble(); 
+let scribble; 
 
 let displayToilet,displayPlunger, displayPaper, displayTranslate;
 
@@ -29,6 +29,7 @@ function setup() {
  // shared.soundList = shared.soundList || [];
  // shared.textList = shared.textList || [];
  // shared.soundList = [];
+  scribble = new Scribble();
   shared.textList = [];
   // bg = loadImage('graphpaper.png');
   background(225, 231, 235);
