@@ -24,7 +24,7 @@ function preload() {
 }
 
 function setup() {
-  
+  soundFinal = new p5.SoundFile();
   createCanvas(500, 800);
  // shared.soundList = shared.soundList || [];
   shared.textList = shared.textList || [];
