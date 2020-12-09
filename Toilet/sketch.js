@@ -27,10 +27,10 @@ function setup() {
   
   createCanvas(500, 800);
  // shared.soundList = shared.soundList || [];
- // shared.textList = shared.textList || [];
+  shared.textList = shared.textList || [];
  // shared.soundList = [];
   scribble = new Scribble();
-  shared.textList = [];
+ // shared.textList = [];
   // bg = loadImage('graphpaper.png');
   background(225, 231, 235);
         textStyle(BOLD);
