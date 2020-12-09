@@ -103,7 +103,7 @@ function draw() {
 
 
 function recordStart() {
-
+   getAudioContext().resume();
   // var soundFile;
   // use the '.enabled' boolean to make sure user enabled the mic (otherwise we'd record silence)
   if (state === 0 && mic.enabled) {
