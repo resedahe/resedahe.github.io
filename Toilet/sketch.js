@@ -24,7 +24,7 @@ function preload() {
 }
 
 function setup() {
-  soundFinal = new p5.SoundFile();
+ 
   createCanvas(500, 800);
  // shared.soundList = shared.soundList || [];
   shared.textList = shared.textList || [];
@@ -103,7 +103,7 @@ function draw() {
 
 
 function recordStart() {
-   getAudioContext().resume();
+  
   // var soundFile;
   // use the '.enabled' boolean to make sure user enabled the mic (otherwise we'd record silence)
   if (state === 0 && mic.enabled) {
