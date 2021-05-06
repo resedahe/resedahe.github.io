@@ -6,18 +6,21 @@
    
     <meta charset="utf-8" />
  <style>
- 	html, body {
-  margin: 0;
-  padding: 0;
-   display: flex;
-  justify-content: center;
+	html, body {
+	  margin: 0;
+	  padding: 0;
+	     margin-left: auto;
+	    margin-right: auto; 
+	  /* This centers our sketch vertically. */
 
-  /* This centers our sketch vertically. */
-  align-items: center;
-}
-canvas {
-  display: block;
-}
+	   background-color: black;
+	}
+	canvas {
+	  display: block;
+	     margin-left: auto;
+	    margin-right: auto 
+	}
+
  </style>
   </head>
   <body>
@@ -88,7 +91,7 @@ let fbell;
 let gbell;
 
 function setup() {
-  createCanvas(600,800);
+  createCanvas(1000, 1400);
 
   // Load the sound file.
   // We have included both an MP3 and an OGG version.
@@ -103,23 +106,19 @@ function setup() {
   ebell = new singingbell(width / 2, height / 1.86, 30);
   dbell = new singingbell(width / 2, height / 1.59, 30);
   cbell = new singingbell(width / 2, height / 1.4, 30);
-   video = createCapture(VIDEO);
+
+  video = createCapture(VIDEO);
   video.size(width, height);
+  video.position (0,-120);
+  
   poseNet = ml5.poseNet(video, 'single', modelReady);
   poseNet.on('pose', gotPose);
   
-   // a =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_35947c1ed1dd4a1d941b434c41c0d7b4.wav');
-   // b =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_52588a484379454990dd86d35f983488.wav');
-   // c =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_1647100b32e049c9942c7e679ad96b03.wav');
-   // d =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_189ef1def73446f89229aab61f965f8d.wav');
-   // e =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_dd3454a159134f02a9049c6fa1d8c53c.mp3');
-   // f =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_185ed463c2d0418586a82a7c7ef4c669.wav');
-   // g =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_f70bc5fdecb04231ad53ff5c292fe4aa.wav');
  
 }
 
 function draw() {
-       chakra.resize(600,800);
+       chakra.resize(1000, 1400);
     image(chakra, 0, 0);
    if (!rightHand) return;
   //background(255);
