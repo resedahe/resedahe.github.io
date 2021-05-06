@@ -1,0 +1,183 @@
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
+     <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js" type="text/javascript"></script>
+   
+    <meta charset="utf-8" />
+ <style>
+ 	html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+ </style>
+  </head>
+  <body>
+    <script>
+let rightHand;
+let video;
+let poseNet;
+let poses = [];
+let a;
+let b;
+let c;
+let d;
+let e;
+let f;
+let g;
+let mallet; 
+let chakra;
+
+function preload() {
+  
+mallet = loadImage("https://static.wixstatic.com/media/dfd2c4_2045926a3ff44be2a9777a0f148086cd~mv2.png");
+chakra = loadImage("https://static.wixstatic.com/media/dfd2c4_80f2de73718c4ddba755b2ace04d3f46~mv2.jpeg");
+    a =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_35947c1ed1dd4a1d941b434c41c0d7b4.wav');
+   b =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_52588a484379454990dd86d35f983488.wav');
+   c =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_1647100b32e049c9942c7e679ad96b03.wav');
+   d =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_189ef1def73446f89229aab61f965f8d.wav');
+   e =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_dd3454a159134f02a9049c6fa1d8c53c.mp3');
+   f =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_185ed463c2d0418586a82a7c7ef4c669.wav');
+   g =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_f70bc5fdecb04231ad53ff5c292fe4aa.wav');
+  
+}
+
+class singingbell {
+  constructor(x_, y_, r_) {
+    // Location and size
+    this.x = x_;
+    this.y = y_;
+    this.r = r_;
+  }
+  // Is a point inside the doorbell? (used for mouse rollover, etc.)
+  contains(mx, my) {
+    return dist(mx, my, this.x, this.y) < this.r;
+  }
+
+  // Show the doorbell (hardcoded colors, could be improved)
+  display(mx, my) {
+    if (this.contains(mx, my)) {
+        noFill();
+    } else {
+         fill(92, 92, 92,80);
+    }
+    stroke(0);
+    strokeWeight(0);
+    ellipseMode(RADIUS);
+    ellipse(this.x, this.y, this.r, this.r);
+  }
+}
+
+
+
+// A doorbell object (that will trigger the sound)
+let abell;
+let bbell;
+let cbell;
+let dbell;
+let ebell;
+let fbell;
+let gbell;
+
+function setup() {
+  createCanvas(1000, 1400);
+
+  // Load the sound file.
+  // We have included both an MP3 and an OGG version.
+  soundFormats('mp3', 'ogg');
+
+
+  // Create a new doorbell
+  bbell = new singingbell(width / 2, height / 5.2, 30);
+  abell = new singingbell(width / 2, height / 3.65, 30);
+  gbell = new singingbell(width / 2, height / 2.75, 30);
+  fbell = new singingbell(width / 2, height / 2.25, 30);
+  ebell = new singingbell(width / 2, height / 1.86, 30);
+  dbell = new singingbell(width / 2, height / 1.59, 30);
+  cbell = new singingbell(width / 2, height / 1.4, 30);
+   video = createCapture(VIDEO);
+  video.size(width, height);
+  poseNet = ml5.poseNet(video, 'single', modelReady);
+  poseNet.on('pose', gotPose);
+  
+   // a =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_35947c1ed1dd4a1d941b434c41c0d7b4.wav');
+   // b =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_52588a484379454990dd86d35f983488.wav');
+   // c =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_1647100b32e049c9942c7e679ad96b03.wav');
+   // d =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_189ef1def73446f89229aab61f965f8d.wav');
+   // e =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_dd3454a159134f02a9049c6fa1d8c53c.mp3');
+   // f =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_185ed463c2d0418586a82a7c7ef4c669.wav');
+   // g =  loadSound('https://static.wixstatic.com/mp3/dfd2c4_f70bc5fdecb04231ad53ff5c292fe4aa.wav');
+ 
+}
+
+function draw() {
+       chakra.resize(1000, 1400);
+    image(chakra, 0, 0);
+   if (!rightHand) return;
+  //background(255);
+  // Show the doorbell
+  bbell.display(rightHand.x, rightHand.y);
+    if (bbell.contains(rightHand.x, rightHand.y)) {
+    b.play();
+  }
+    abell.display(rightHand.x, rightHand.y);
+    if (abell.contains(rightHand.x, rightHand.y)) {
+    a.play();
+  }
+    gbell.display(rightHand.x, rightHand.y);
+    if (gbell.contains(rightHand.x, rightHand.y)) {
+    g.play();
+  }
+    fbell.display(rightHand.x, rightHand.y);
+    if (fbell.contains(rightHand.x, rightHand.y)) {
+    f.play();
+  }
+    ebell.display(rightHand.x, rightHand.y);
+    if (ebell.contains(rightHand.x, rightHand.y)) {
+    e.play();
+  } 
+      dbell.display(rightHand.x, rightHand.y);
+    if (dbell.contains(rightHand.x, rightHand.y)) {
+    d.play();
+  }
+      cbell.display(rightHand.x, rightHand.y);
+    if (cbell.contains(rightHand.x, rightHand.y)) {
+    c.play();
+  }
+  
+  mallet.resize(60, 60);
+  image(mallet, rightHand.x, rightHand.y); 
+}
+
+// function mousePressed() {
+//   // If the user clicks on the doorbell, play the sound!
+//   if (doorbell.contains(rightHand.x, rightHand.y)) {
+//     dingdong.play();
+//   }
+// }
+
+function gotPose(results) {
+  let poses = results;
+  rightHand = poses[0].pose.rightWrist;
+}
+
+function modelReady() {
+}
+function touchStarted() {
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
+  }
+
+}
+function mousePressed() {
+  userStartAudio();
+}
+
+
+    </script>
+  </body>
+</html>
+
