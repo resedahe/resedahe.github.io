@@ -90,7 +90,7 @@ let fbell;
 let gbell;
 
 function setup() {
-  createCanvas(1000, 1400);
+  createCanvas(600, 800);
 
   // Load the sound file.
   // We have included both an MP3 and an OGG version.
@@ -107,8 +107,8 @@ function setup() {
   cbell = new singingbell(width / 2, height / 1.4, 30);
 
   video = createCapture(VIDEO);
-  video.size(width/2, height/2);
-  video.position (0,-120);
+  video.size(width, height);
+  //video.position (0,-120);
   
   poseNet = ml5.poseNet(video, 'single', modelReady);
   poseNet.on('pose', gotPose);
@@ -117,7 +117,7 @@ function setup() {
 }
 
 function draw() {
-       chakra.resize(1000, 1400);
+       chakra.resize(600, 800);
     image(chakra, 0, 0);
    if (!rightHand) return;
   //background(255);
