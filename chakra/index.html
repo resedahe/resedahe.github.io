@@ -7,17 +7,21 @@
     <meta charset="utf-8" />
  <style>
 	html, body {
+	  color: white;
+	  text-align: center;
+	    font-family: "Papyrus";
 	  margin: 0;
 	  padding: 0;
 	     margin-left: auto;
 	    margin-right: auto; 
 	  /* This centers our sketch vertically. */
+
 	   background-color: black;
 	}
 	canvas {
 	  display: block;
 	     margin-left: auto;
-	    margin-right: auto; 
+	    margin-right: auto 
 	}
 
  </style>
@@ -108,7 +112,7 @@ function setup() {
 
   video = createCapture(VIDEO);
   video.size(width, height);
-  video.position (0,-120);
+  //video.position (0,-120);
   
   poseNet = ml5.poseNet(video, 'single', modelReady);
   poseNet.on('pose', gotPose);
