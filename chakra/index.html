@@ -9,6 +9,11 @@
  	html, body {
   margin: 0;
   padding: 0;
+   display: flex;
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
 }
 canvas {
   display: block;
@@ -83,7 +88,7 @@ let fbell;
 let gbell;
 
 function setup() {
-  createCanvas(1000, 1400);
+  createCanvas(600,800);
 
   // Load the sound file.
   // We have included both an MP3 and an OGG version.
@@ -114,7 +119,7 @@ function setup() {
 }
 
 function draw() {
-       chakra.resize(1000, 1400);
+       chakra.resize(600,800);
     image(chakra, 0, 0);
    if (!rightHand) return;
   //background(255);
