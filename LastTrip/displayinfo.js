@@ -14,9 +14,9 @@ class displayTitle {
     let d = dist(px, py, this.x, this.y);
     if (d < this.w) {
       this.y = this.y-10;
-      textSize(30);
+      textSize(38);
       fill('#4082F7');
-      text(this.title,this.x+25,this.y);
+      text(this.title,this.x+35,this.y);
     } 
   }
 
