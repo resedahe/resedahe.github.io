@@ -37,7 +37,7 @@ function setup() {
   options['lat'] = userdata.geometry.coordinates[0][1];
  // console.log(userdata.geometry.coordinates[0][1]);
   options['lng'] = userdata.geometry.coordinates[0][0];
-  options['zoom'] = 14;
+  options['zoom'] = 15;
   options['style'] = style;
  // console.log(options);
   canvas = createCanvas(w,h);
