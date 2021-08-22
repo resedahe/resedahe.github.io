@@ -104,8 +104,8 @@ function loadTitles() {
         options.lng+0.007,
         pos.x,
         pos.y,
-        70,
-        70,
+        65,
+        65,
         userdata.properties.start_time,
         time
       );
@@ -118,8 +118,8 @@ function loadTitles() {
         options.lng+0.007,
         pos.x,
         pos.y,
-        70,
-        70,
+        65,
+        65,
         '5.52 km',
         route
       );
@@ -135,8 +135,8 @@ function loadTitles() {
         options.lng+0.007,
         pos.x,
         pos.y,
-        70,
-        70,
+        65,
+        65,
         '$10',
         dollar
       );
