@@ -24,12 +24,12 @@ var titleName;
 
 function preload(){
   
-  data = loadJSON('./info.json');
-  userdata = loadJSON('./userdata.json')
-  pin  = loadImage("./pin.png");
-  route  = loadImage("./route.png");
-  time  = loadImage("./time.png");
-  dollar  = loadImage("./dollar.png");
+  data = loadJSON('info.json');
+  userdata = loadJSON('userdata.json')
+  pin  = loadImage("pin.png");
+  route  = loadImage("route.png");
+  time  = loadImage("time.png");
+  dollar  = loadImage("dollar.png");
  
 }
 
