@@ -137,7 +137,7 @@ function loadTitles() {
         pos.y,
         65,
         65,
-        '$10',
+        '$10.8',
         dollar
       );
 
